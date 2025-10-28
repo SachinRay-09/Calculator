@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="cal.css">
+   </head>
+   <body>
+        <header>Calculator</header>
+        <div>
+            <div class="buttons">
+                <button class="button1" onkeydown = "if(event.key === '1') cal(1); " onclick="
+                    cal(1);
+                ">1</button>
+                <button class="button1" onkeydown = "if(event.key === '2') cal(2); " onclick="
+                    cal(2);
+                ">2</button>
+                <button class="button1" onkeydown = "if(event.key === '3') cal(3); " onclick="
+                    cal(3);
+                ">3</button>
+                <button class="button1" onkeydown = "if(event.key === '+') cal('+'); " onclick="
+                    cal('+');
+                ">+</button>
+            </div>
+            <div class="buttons">
+                <button class="button1" onkeydown = "if(event.key === '4') cal(4); " onclick="
+                    cal(4);
+                ">4</button>
+                <button class="button1" onkeydown = "if(event.key === '5') cal(5); " onclick="
+                    cal(5);
+                ">5</button>
+                <button class="button1" onkeydown = "if(event.key === '6') cal(6); " onclick="
+                    cal(6);
+                ">6</button>
+                <button class="button1" onkeydown = "if(event.key === '-') cal('-'); " onclick="
+                    cal('-');
+                ">-</button>
+            </div>
+            <div class="buttons">
+                <button class="button1" onkeydown = "if(event.key === '7') cal(7); " onclick="
+                    cal(7);
+                ">7</button>
+                <button class="button1" onkeydown = "if(event.key === '8') cal(8); " onclick="
+                    cal(8);
+                ">8</button>
+                <button class="button1" onkeydown = "if(event.key === '9') cal(9); " onclick="
+                    cal(9);
+                ">9</button>
+                <button class="button1" onkeydown = "if(event.key === '*') cal('*'); " onclick="
+                    cal('*');
+                ">*</button>
+            </div>
+            <div class="buttons">
+                <button class="button1" onkeydown="if(event.key === '.' ) cal('.'); " onclick="cal('.');">.</button>
+                <button class="button1" onkeydown="if(event.key === '0') cal(0);" onclick="cal(0);">0</button>
+                <button class="button1" onkeydown="if(event.key === 'Enter') cal('=');" onclick="cal('=');">=</button>
+                <button class="button1" onkeydown="if(event.key === '/') cal('/');" onclick="cal('/');">/</button>
+            </div>
+
+            <!-- Small on-page display so you can see the current number/result -->
+            <div id="display" style="font-size:20px; margin:8px 15px; min-height:28px;">0</div>
+
+            <!-- Expression box: shows the full typed expression and result after '=' -->
+            <div id="expression" style="font-size:16px; margin:6px 15px; min-height:24px; border:1px solid #ddd; padding:6px; width:220px;"> </div>
+
+            <!-- Externalized JavaScript (see cal.js for readable implementation) -->
+            <script src="cal.js"></script>
+   </body>
+</html>

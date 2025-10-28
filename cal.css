@@ -1,0 +1,36 @@
+body{
+    background-color: #FAFAFA;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    font-size: 50px;
+    font-family: Roboto, Arial;
+    font-weight: 600;
+    margin-bottom: 60px;
+    margin-left: 70px;
+    margin-top: 25px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    flex: 1fr;
+    margin-bottom: 20px;
+}
+
+.button1{
+    margin-right:15px;
+    margin-left: 15px;
+    height: 60px;
+    width: 60px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    background-color: rgb(218, 255, 255);
+    border-style: solid 3px black;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0,0,0.2);
+    cursor: pointer;
+}
