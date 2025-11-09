@@ -181,3 +181,69 @@ function cal(input) {
 
 // initialize simple display when the script loads
 updateDisplay();
+
+// --- Keyboard support --------------------------------------------------
+// Global keydown handler so physical keyboard keys activate the calculator
+// - Digits 0-9 and '.' map to number entry
+// - Operators + - * / map to operator entry
+// - Enter or '=' maps to '=' (calculate)
+// - Backspace maps to backspace (removes last digit)
+// - Escape or 'c' maps to clear
+// - When a <button> has focus, Enter or Space will trigger its click
+document.addEventListener('keydown', function (e) {
+    const key = e.key;
+
+    // If a button is focused and user presses Enter or Space, activate the button
+    const active = document.activeElement;
+    if (active && active.tagName === 'BUTTON' && (key === 'Enter' || key === ' ' || key === 'Spacebar')) {
+        e.preventDefault();
+        active.click();
+        return;
+    }
+
+    // Don't hijack typing in inputs/textareas/contenteditable (none in this page, but safe)
+    if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)) return;
+
+    // Digits
+    if (/^[0-9]$/.test(key)) {
+        e.preventDefault();
+        cal(key);
+        return;
+    }
+
+    // Decimal point (allow comma as well for some keyboards)
+    if (key === '.' || key === ',') {
+        e.preventDefault();
+        cal('.');
+        return;
+    }
+
+    // Operators
+    if (key === '+' || key === '-' || key === '*' || key === '/') {
+        e.preventDefault();
+        cal(key);
+        return;
+    }
+
+    // Enter or '=' to evaluate
+    if (key === 'Enter' || key === '=') {
+        e.preventDefault();
+        cal('=');
+        return;
+    }
+
+    // Backspace -> remove last digit
+    if (key === 'Backspace') {
+        e.preventDefault();
+        cal('BACK');
+        updateExpressionDisplay();
+        return;
+    }
+
+    // Escape or 'c' -> clear
+    if (key === 'Escape' || key.toLowerCase() === 'c') {
+        e.preventDefault();
+        cal('C');
+        return;
+    }
+});
